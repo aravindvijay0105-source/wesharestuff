@@ -1,1 +1,2830 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
+
+
+/* =========================================================
+   ARVISHARES
+   MESSY HANDWRITTEN NEWSPAPER
+========================================================= */
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --paper: #ead9b4;
+    --paper-light: #f5e8c9;
+    --paper-dark: #cdb789;
+
+    --ink: #17130f;
+
+    --red: #b52b25;
+    --blue: #244f91;
+    --green: #456b42;
+    --yellow: #e7a900;
+
+}
+
+
+/* ================= BODY ================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background-color: #c9ae7b;
+
+    color: var(--ink);
+
+    font-family: "Kalam", cursive;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   PAPER BACKGROUND
+========================================================= */
+
+.page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-color: var(--paper);
+
+
+    /* PAPER / DIRTY / CRUMPLED EFFECT */
+
+    background-image:
+
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(95, 61, 25, .16) 0px,
+            transparent 55px
+        ),
+
+        radial-gradient(
+            circle at 80% 8%,
+            rgba(255,255,255,.35) 0px,
+            transparent 120px
+        ),
+
+        radial-gradient(
+            circle at 90% 45%,
+            rgba(100,70,30,.12) 0px,
+            transparent 80px
+        ),
+
+        radial-gradient(
+            circle at 20% 75%,
+            rgba(70,45,20,.12) 0px,
+            transparent 100px
+        ),
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(80,55,25,.025) 0px,
+            rgba(80,55,25,.025) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.04) 0px,
+            rgba(255,255,255,.04) 1px,
+            transparent 1px,
+            transparent 6px
+        );
+
+}
+
+
+/* PAPER GRAIN */
+
+.page::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    opacity: .18;
+
+    background-image:
+
+        repeating-radial-gradient(
+            circle at 20% 30%,
+            transparent 0,
+            transparent 1px,
+            rgba(0,0,0,.08) 1px,
+            transparent 2px
+        );
+
+    mix-blend-mode: multiply;
+
+}
+
+
+/* =========================================================
+   RANDOM PAPER STAINS
+========================================================= */
+
+.page::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    top: 0;
+
+    left: 0;
+
+    pointer-events: none;
+
+    background-image:
+
+        radial-gradient(
+            circle at 2% 10%,
+            rgba(120,80,30,.25) 0px,
+            rgba(120,80,30,.08) 12px,
+            transparent 14px
+        ),
+
+        radial-gradient(
+            circle at 98% 35%,
+            rgba(120,80,30,.18) 0px,
+            rgba(120,80,30,.05) 20px,
+            transparent 25px
+        ),
+
+        radial-gradient(
+            circle at 3% 80%,
+            rgba(120,80,30,.2) 0px,
+            transparent 18px
+        );
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+    width: 100%;
+
+    position: relative;
+
+    z-index: 2;
+
+    border-bottom: 2px solid var(--ink);
+
+}
+
+
+/* ================= TOP LINE ================= */
+
+.top-line {
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 35px;
+
+    border-bottom: 2px solid var(--ink);
+
+}
+
+
+.menu {
+
+    font-size: 28px;
+
+    font-family: Arial, sans-serif;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    text-align: center;
+
+    padding: 25px 20px 15px;
+
+    position: relative;
+
+}
+
+
+.brand h1 {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: clamp(50px, 8vw, 110px);
+
+    line-height: .9;
+
+    letter-spacing: 2px;
+
+    transform: rotate(-1deg);
+
+}
+
+
+.brand p {
+
+    font-family: "Special Elite", monospace;
+
+    font-size: 12px;
+
+    margin-top: 12px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* HAND DRAWN UNDERLINE */
+
+.brand p::after {
+
+    content: "";
+
+    display: block;
+
+    width: 250px;
+
+    max-width: 70%;
+
+    height: 3px;
+
+    background: var(--ink);
+
+    margin: 8px auto 0;
+
+    transform: rotate(-1deg);
+
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.nav {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 2px solid var(--ink);
+
+}
+
+
+.nav a {
+
+    color: var(--ink);
+
+    text-decoration: none;
+
+    text-align: center;
+
+    padding: 13px 10px;
+
+    font-family: "Kalam", cursive;
+
+    font-weight: 700;
+
+    font-size: 15px;
+
+    border-right: 2px solid var(--ink);
+
+    transition: .2s;
+
+}
+
+
+.nav a:last-child {
+
+    border-right: none;
+
+}
+
+
+.nav a:hover {
+
+    background: rgba(255,255,255,.25);
+
+    color: var(--red);
+
+}
+
+
+/* =========================================================
+   TOP NEWSPAPER
+========================================================= */
+
+.top-news {
+
+    width: 94%;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: .7fr 2fr .8fr;
+
+    border-bottom: 2px solid var(--ink);
+
+    position: relative;
+
+}
+
+
+/* =========================================================
+   LEFT COLUMN
+========================================================= */
+
+.left-column {
+
+    border-right: 2px solid var(--ink);
+
+    padding: 15px;
+
+    min-height: 500px;
+
+}
+
+
+.small-story {
+
+    position: relative;
+
+}
+
+
+.small-story h3 {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    padding-bottom: 12px;
+
+    border-bottom: 2px solid var(--ink);
+
+    transform: rotate(-1deg);
+
+}
+
+
+.small-story::after {
+
+
+    white-space: pre-line;
+
+    display: block;
+
+    margin-top: 20px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 24px;
+
+    line-height: 1.25;
+
+    transform: rotate(-2deg);
+
+}
+
+
+.small-story::before {
+
+    content: "⚡";
+
+    position: absolute;
+
+    top: 70px;
+
+    right: 20px;
+
+    color: var(--red);
+
+    font-size: 40px;
+
+    transform: rotate(15deg);
+
+}
+
+
+/* =========================================================
+   MAIN STORY
+========================================================= */
+
+.main-story {
+
+    padding: 15px 25px 20px;
+
+    border-right: 2px solid var(--ink);
+
+    position: relative;
+
+}
+
+
+.hero-image {
+
+    width: 100%;
+
+    height: 340px;
+
+    object-fit: cover;
+
+    display: block;
+
+    filter: sepia(12%) contrast(105%);
+
+    border: 1px solid rgba(0,0,0,.5);
+
+}
+
+
+/* messy circle on hero */
+
+.main-story::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+
+    height: 70px;
+
+    border: 3px solid var(--red);
+
+    border-radius: 50%;
+
+    top: 55px;
+
+    left: 130px;
+
+    transform: rotate(25deg);
+
+    z-index: 2;
+
+}
+
+
+.main-story .category {
+
+    margin-top: 15px;
+
+    display: inline-block;
+
+    background: var(--yellow);
+
+    font-family: "Special Elite", monospace;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    padding: 3px 7px;
+
+    transform: rotate(-1deg);
+
+}
+
+
+.main-story h2 {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: clamp(35px, 4vw, 60px);
+
+    line-height: 1;
+
+    margin: 15px 0;
+
+    letter-spacing: 1px;
+
+}
+
+
+.description {
+
+    font-family: "Kalam", cursive;
+
+    font-size: 17px;
+
+    line-height: 1.45;
+
+    max-width: 700px;
+
+}
+
+
+.byline {
+
+    margin-top: 20px;
+
+    font-family: "Special Elite", monospace;
+
+    font-size: 11px;
+
+    border-top: 1px solid var(--ink);
+
+    padding-top: 12px;
+
+}
+
+
+/* =========================================================
+   RIGHT COLUMN
+========================================================= */
+
+.right-column {
+
+    padding: 15px;
+
+}
+
+
+.right-story {
+
+    padding-bottom: 20px;
+
+    margin-bottom: 20px;
+
+    border-bottom: 2px solid var(--ink);
+
+    position: relative;
+
+}
+
+
+.right-story:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.placeholder-image {
+
+    height: 115px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #1b1b1b,
+            #363636
+        );
+
+    color: var(--paper);
+
+    font-size: 70px;
+
+    font-family: "Permanent Marker", cursive;
+
+    margin-bottom: 12px;
+
+    transform: rotate(-1deg);
+
+}
+
+
+.right-story h3 {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+}
+
+
+.right-story p {
+
+    font-family: "Caveat", cursive;
+
+    font-size: 22px;
+
+    line-height: 1.1;
+
+    margin-top: 10px;
+
+}
+
+
+/* RANDOM PEN MARK */
+
+.right-story::after {
+
+    content: "↗";
+
+    position: absolute;
+
+    right: 5px;
+
+    bottom: 0;
+
+    font-family: "Caveat", cursive;
+
+    color: var(--blue);
+
+    font-size: 55px;
+
+    transform: rotate(-15deg);
+
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.section {
+
+    width: 94%;
+
+    margin: 0 auto;
+
+    padding: 35px 0 20px;
+
+    position: relative;
+
+}
+
+
+.section-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 2px solid var(--ink);
+
+    margin-bottom: 25px;
+
+    padding-bottom: 8px;
+
+}
+
+
+.section-title h2 {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: clamp(38px, 5vw, 70px);
+
+    line-height: .9;
+
+    transform: rotate(-1deg);
+
+}
+
+
+.section-title a {
+
+    font-family: "Caveat", cursive;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: var(--ink);
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================================
+   TINY EXPERIMENT CARDS
+========================================================= */
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.card {
+
+    border: 2px solid var(--ink);
+
+    padding: 12px;
+
+    background: rgba(255,255,255,.15);
+
+    position: relative;
+
+    transition: .25s;
+
+}
+
+
+/* slightly imperfect */
+
+.card:nth-child(1) {
+
+    transform: rotate(-1.5deg);
+
+}
+
+
+.card:nth-child(2) {
+
+    transform: rotate(.8deg);
+
+}
+
+
+.card:nth-child(3) {
+
+    transform: rotate(-.5deg);
+
+}
+
+
+.card:nth-child(4) {
+
+    transform: rotate(1.2deg);
+
+}
+
+
+.card:hover {
+
+    transform: rotate(0deg) translateY(-8px);
+
+    box-shadow: 6px 8px 0 rgba(0,0,0,.25);
+
+    z-index: 5;
+
+}
+
+
+.card-image {
+
+    width: 100%;
+
+    height: 210px;
+
+    overflow: hidden;
+
+    background: #d4c19b;
+
+    border: 1px solid var(--ink);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.card-image img {
+
+    position :relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.card-image.blank {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 80px;
+
+    color: var(--ink);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.3),
+            rgba(0,0,0,.05)
+        );
+
+}
+
+
+.card .category {
+
+    display: inline-block;
+
+    margin-top: 14px;
+
+    font-family: "Special Elite", monospace;
+
+    font-size: 10px;
+
+    background: var(--yellow);
+
+    padding: 2px 6px;
+
+}
+
+
+.card h3 {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 24px;
+
+    line-height: 1.05;
+
+    margin: 12px 0;
+
+}
+
+
+.card p {
+
+    font-family: "Kalam", cursive;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+}
+
+
+.card-date {
+
+    margin-top: 15px;
+
+    padding-top: 8px;
+
+    border-top: 1px solid var(--ink);
+
+    font-family: "Special Elite", monospace;
+
+    font-size: 10px;
+
+}
+
+
+/* doodles on cards */
+
+.card::after {
+
+    content: "☆";
+
+    position: absolute;
+
+    right: 8px;
+
+    bottom: 8px;
+
+    color: var(--red);
+
+    font-family: "Caveat", cursive;
+
+    font-size: 38px;
+
+    transform: rotate(15deg);
+
+}
+
+
+.card:nth-child(2)::after {
+
+    content: "✓";
+
+    color: var(--blue);
+
+}
+
+
+.card:nth-child(3)::after {
+
+    content: "♛";
+
+    color: var(--green);
+
+}
+
+
+.card:nth-child(4)::after {
+
+    content: "?";
+
+    color: var(--red);
+
+}
+
+
+/* =========================================================
+   IDEAS
+========================================================= */
+
+.idea-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 2px solid var(--ink);
+
+    border-bottom: 2px solid var(--ink);
+
+}
+
+
+.idea-grid article {
+
+    padding: 25px;
+
+    border-right: 2px solid var(--ink);
+
+    min-height: 250px;
+
+    position: relative;
+
+}
+
+
+.idea-grid article:last-child {
+
+    border-right: none;
+
+}
+
+
+.idea-grid span {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 50px;
+
+    color: var(--red);
+
+}
+
+
+.idea-grid article:nth-child(2) span {
+
+    color: var(--blue);
+
+}
+
+
+.idea-grid article:nth-child(3) span {
+
+    color: var(--green);
+
+}
+
+
+.idea-grid h3 {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    margin: 12px 0;
+
+}
+
+
+.idea-grid p {
+
+    font-family: "Kalam", cursive;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+}
+
+
+/* random doodles */
+
+.idea-grid article:nth-child(1)::after {
+
+    content: "💡";
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 20px;
+
+    font-size: 30px;
+
+}
+
+
+.idea-grid article:nth-child(2)::after {
+
+    content: "→";
+
+    position: absolute;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 55px;
+
+    color: var(--ink);
+
+}
+
+
+.idea-grid article:nth-child(3)::after {
+
+    content: "〰";
+
+    position: absolute;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    font-size: 45px;
+
+    color: var(--blue);
+
+}
+
+
+/* =========================================================
+   BIG STATEMENT
+========================================================= */
+
+.statement {
+
+    width: 94%;
+
+    margin: 0 auto;
+
+    padding: 60px 30px;
+
+    text-align: center;
+
+    border-bottom: 2px solid var(--ink);
+
+    position: relative;
+
+}
+
+
+.statement p {
+
+    font-family: "Kalam", cursive;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+}
+
+
+.statement h2 {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: clamp(70px, 12vw, 180px);
+
+    line-height: .8;
+
+    margin-top: 15px;
+
+    transform: rotate(-1deg);
+
+}
+
+
+/* red underline */
+
+.statement h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 65%;
+
+    height: 5px;
+
+    background: var(--red);
+
+    margin: 15px auto 0;
+
+    transform: rotate(-2deg);
+
+}
+
+
+/* =========================================================
+   ARCHIVE
+========================================================= */
+
+.archive {
+
+    width: 94%;
+
+    margin: 0 auto;
+
+    padding: 40px 0;
+
+}
+
+
+.archive-row {
+
+    display: grid;
+
+    grid-template-columns: 70px 1fr 100px 40px;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 12px 15px;
+
+    border: 1px solid var(--ink);
+
+    margin-top: -1px;
+
+    transition: .2s;
+
+}
+
+
+.archive-row:hover {
+
+    background: rgba(255,255,255,.25);
+
+    padding-left: 25px;
+
+}
+
+
+.archive-row span {
+
+    font-family: "Special Elite", monospace;
+
+    font-size: 11px;
+
+}
+
+
+.archive-row strong {
+
+    font-family: "Kalam", cursive;
+
+    font-size: 17px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    border-top: 2px solid var(--ink);
+
+    padding: 60px 20px 30px;
+
+    text-align: center;
+
+    position: relative;
+
+}
+
+
+footer h2 {
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: clamp(55px, 8vw, 100px);
+
+    line-height: .9;
+
+}
+
+
+footer p {
+
+    font-family: "Caveat", cursive;
+
+    font-size: 26px;
+
+    margin-top: 15px;
+
+}
+
+
+footer p:last-child {
+
+    font-family: "Special Elite", monospace;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   EXTRA DOODLES AROUND THE WEBSITE
+========================================================= */
+
+
+/* top star */
+
+header::before {
+
+    content: "☆";
+
+    position: absolute;
+
+    top: 25px;
+
+    left: 23%;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 60px;
+
+    color: var(--red);
+
+    transform: rotate(-15deg);
+
+}
+
+
+/* crown */
+
+header::after {
+
+    content: "♕";
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 5%;
+
+    font-size: 55px;
+
+    color: var(--ink);
+
+    transform: rotate(10deg);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+
+    .top-news {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .left-column,
+    .main-story {
+
+        border-right: none;
+
+        border-bottom: 2px solid var(--ink);
+
+    }
+
+
+    .left-column {
+
+        min-height: auto;
+
+    }
+
+
+    .cards {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .idea-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .idea-grid article {
+
+        border-right: none;
+
+        border-bottom: 2px solid var(--ink);
+
+    }
+
+
+    .archive-row {
+
+        grid-template-columns: 45px 1fr 30px;
+
+    }
+
+
+    .archive-row span:nth-of-type(2) {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+
+    .cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero-image {
+
+        height: 240px;
+
+    }
+
+
+    .main-story {
+
+        padding: 12px;
+
+    }
+
+
+    .brand h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .nav a {
+
+        font-size: 11px;
+
+        padding: 10px 4px;
+
+    }
+
+
+    .archive-row {
+
+        font-size: 12px;
+
+        gap: 8px;
+
+        padding: 10px;
+
+    }
+
+
+    .statement {
+
+        padding: 50px 15px;
+
+    }
+/* =========================================================
+   EXTRA MESSY DOODLE SYSTEM
+========================================================= */
+
+
+/* DOODLE BASE */
+
+.doodle {
+
+    position: absolute;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    font-family: "Permanent Marker", cursive;
+
+    line-height: 1;
+
+}
+
+
+/* =========================================================
+   TOP AREA DOODLES
+========================================================= */
+
+
+/* RED STAR */
+
+.doodle-1 {
+
+    top: 55px;
+
+    left: 18%;
+
+    font-size: 55px;
+
+    color: #b52b25;
+
+    transform: rotate(-20deg);
+
+}
+
+
+/* BLUE QUESTION */
+
+.doodle-2 {
+
+    top: 75px;
+
+    right: 8%;
+
+    font-size: 75px;
+
+    color: #244f91;
+
+    transform: rotate(8deg);
+
+}
+
+
+/* RED EXCLAMATION */
+
+.doodle-3 {
+
+    top: 250px;
+
+    left: 7%;
+
+    font-size: 55px;
+
+    color: #b52b25;
+
+    transform: rotate(-15deg);
+
+}
+
+
+/* BLUE ARROW */
+
+.doodle-4 {
+
+    top: 330px;
+
+    right: 4%;
+
+    font-size: 75px;
+
+    color: #244f91;
+
+    transform: rotate(-20deg);
+
+}
+
+
+/* BULB */
+
+.doodle-5 {
+
+    top: 430px;
+
+    left: 2%;
+
+    font-size: 45px;
+
+    transform: rotate(-15deg);
+
+}
+
+
+/* RANDOM STAR */
+
+.doodle-6 {
+
+    top: 620px;
+
+    right: 3%;
+
+    font-size: 45px;
+
+    color: #b52b25;
+
+    transform: rotate(20deg);
+
+}
+
+
+/* BIG X */
+
+.doodle-7 {
+
+    top: 900px;
+
+    left: 3%;
+
+    font-size: 70px;
+
+    color: #b52b25;
+
+    transform: rotate(-10deg);
+
+}
+
+
+/* QUESTION */
+
+.doodle-8 {
+
+    top: 1200px;
+
+    right: 5%;
+
+    font-size: 90px;
+
+    color: #17130f;
+
+    transform: rotate(10deg);
+
+}
+
+
+/* LIGHTNING */
+
+.doodle-9 {
+
+    top: 1500px;
+
+    left: 4%;
+
+    font-size: 55px;
+
+    color: #e7a900;
+
+    transform: rotate(20deg);
+
+}
+
+
+/* ARROW */
+
+.doodle-10 {
+
+    top: 1750px;
+
+    right: 6%;
+
+    font-size: 70px;
+
+    color: #244f91;
+
+    transform: rotate(-20deg);
+
+}
+
+
+/* =========================================================
+   BOTTOM AREA DOODLES
+========================================================= */
+
+
+/* EXCLAMATIONS */
+
+.doodle-11 {
+
+    bottom: 500px;
+
+    left: 3%;
+
+    font-size: 60px;
+
+    color: #244f91;
+
+    transform: rotate(-10deg);
+
+}
+
+
+/* STAR */
+
+.doodle-12 {
+
+    bottom: 350px;
+
+    right: 4%;
+
+    font-size: 55px;
+
+    color: #b52b25;
+
+    transform: rotate(15deg);
+
+}
+
+
+/* BULB */
+
+.doodle-13 {
+
+    bottom: 650px;
+
+    right: 10%;
+
+    font-size: 50px;
+
+    transform: rotate(-10deg);
+
+}
+
+
+/* CURLY ARROW */
+
+.doodle-14 {
+
+    bottom: 250px;
+
+    left: 10%;
+
+    font-size: 75px;
+
+    color: #244f91;
+
+    transform: rotate(10deg);
+
+}
+
+
+/* PEN */
+
+.doodle-15 {
+
+    bottom: 150px;
+
+    right: 15%;
+
+    font-size: 70px;
+
+    color: #17130f;
+
+    transform: rotate(-30deg);
+
+}
+
+
+/* CLOUD / IDEA */
+
+.doodle-16 {
+
+    bottom: 450px;
+
+    left: 40%;
+
+    font-size: 70px;
+
+    color: #b52b25;
+
+    transform: rotate(10deg);
+
+}
+
+
+/* ARROW */
+
+.doodle-17 {
+
+    bottom: 100px;
+
+    left: 70%;
+
+    font-size: 80px;
+
+    color: #244f91;
+
+    transform: rotate(-20deg);
+
+}
+
+
+/* LIGHTNING */
+
+.doodle-18 {
+
+    bottom: 80px;
+
+    right: 5%;
+
+    font-size: 60px;
+
+    color: #e7a900;
+
+    transform: rotate(20deg);
+
+}
+
+
+/* =========================================================
+   HAND DRAWN CIRCLES
+========================================================= */
+
+
+/* CIRCLE AROUND HERO */
+
+.hero-image {
+
+    position: relative;
+
+}
+
+
+/* MESSY CIRCLE ON HERO AREA */
+
+.main-story::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+
+    height: 75px;
+
+    border: 3px solid #b52b25;
+
+    border-radius: 50%;
+
+    top: 65px;
+
+    left: 90px;
+
+    transform: rotate(-20deg);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   SCRIBBLE LINES
+========================================================= */
+
+
+/* SECTION TITLES */
+
+.section-title h2 {
+
+    position: relative;
+
+}
+
+
+.section-title h2::after {
+
+    content: "";
+
+    position: absolute;
+
+    height: 4px;
+
+    width: 110%;
+
+    background: #b52b25;
+
+    left: -5%;
+
+    bottom: -10px;
+
+    transform: rotate(-2deg);
+
+}
+
+
+/* DIFFERENT COLOURS */
+
+.section:nth-of-type(3)
+.section-title h2::after {
+
+    background: #244f91;
+
+}
+
+
+.section:nth-of-type(4)
+.section-title h2::after {
+
+    background: #456b42;
+
+}
+
+
+/* =========================================================
+   CARDS MORE HANDMADE
+========================================================= */
+
+.card {
+
+    position: relative;
+
+}
+
+
+/* TAPE */
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+
+    height: 18px;
+
+    background: rgba(196, 151, 77, .45);
+
+    top: -10px;
+
+    left: 50%;
+
+    transform: translateX(-50%) rotate(-4deg);
+
+    z-index: 5;
+
+}
+
+
+/* =========================================================
+   MORE DOODLES INSIDE CARDS
+========================================================= */
+
+
+/* CARD 1 */
+
+.card:nth-child(1) .card-image::after {
+
+    content: "↗";
+
+    position: absolute;
+
+    font-family: "Caveat", cursive;
+
+    color: #b52b25;
+
+    font-size: 55px;
+
+    right: 10px;
+
+    bottom: 5px;
+
+}
+
+
+/* CARD 2 */
+
+.card:nth-child(2) {
+
+    position: relative;
+
+}
+
+
+.card:nth-child(2)::after {
+
+    content: "✓ ✓";
+
+    font-size: 35px;
+
+    color: #244f91;
+
+}
+
+
+/* CARD 3 */
+
+.card:nth-child(3)::after {
+
+    content: "♛";
+
+    font-size: 40px;
+
+}
+
+
+/* CARD 4 */
+
+.card:nth-child(4)::after {
+
+    content: "?";
+
+    font-size: 65px;
+
+}
+
+
+/* =========================================================
+   BIG STATEMENT EXTRA SCRIBBLES
+========================================================= */
+
+.statement {
+
+    overflow: hidden;
+
+}
+
+
+.statement::before {
+
+    content: "!!!";
+
+    position: absolute;
+
+    left: 8%;
+
+    top: 20%;
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 70px;
+
+    color: #b52b25;
+
+    transform: rotate(-15deg);
+
+}
+
+
+.statement::after {
+
+    content: "💡";
+
+    position: absolute;
+
+    right: 7%;
+
+    top: 15%;
+
+    font-size: 65px;
+
+    transform: rotate(15deg);
+
+}
+
+
+/* =========================================================
+   ARCHIVE DOODLES
+========================================================= */
+
+.archive {
+
+    position: relative;
+
+}
+
+
+.archive::before {
+
+    content: "our messy history →";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 25%;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    color: #244f91;
+
+    transform: rotate(-3deg);
+
+}
+
+
+.archive::after {
+
+    content: "✗";
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: -15px;
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 70px;
+
+    color: #b52b25;
+
+    transform: rotate(-15deg);
+
+}
+
+
+/* =========================================================
+   SMALL RANDOM PEN MARKS
+========================================================= */
+
+.right-column {
+
+    position: relative;
+
+}
+
+
+.right-column::before {
+
+    content: "✦";
+
+    position: absolute;
+
+    top: 40px;
+
+    right: 30px;
+
+    font-size: 40px;
+
+    color: #b52b25;
+
+    transform: rotate(15deg);
+
+}
+
+
+.left-column {
+
+    position: relative;
+
+}
+
+
+.left-column::after {
+
+    content: "P.S. don't take us seriously.";
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 15px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 22px;
+
+    color: #244f91;
+
+    transform: rotate(-5deg);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .doodle {
+
+        opacity: .65;
+
+        font-size: 70%;
+
+    }
+
+
+    .doodle-4,
+    .doodle-8,
+    .doodle-10,
+    .doodle-13 {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .doodle {
+
+        opacity: .45;
+
+    }
+
+
+    .doodle-1,
+    .doodle-5,
+    .doodle-6,
+    .doodle-9,
+    .doodle-12,
+    .doodle-15 {
+
+        display: none;
+
+    }
+
+}
+}
+
+
+
+/* =========================================================
+   SCHOOLBELL FONT FOR ENTIRE WEBSITE
+========================================================= */
+
+body,
+body * {
+    font-family: "Schoolbell", cursive !important;
+}
+
+/* =========================================================
+   ARVISHARES LOGO DOODLES
+========================================================= */
+
+
+/* Makes the logo area the reference point */
+
+.brand {
+    position: relative;
+    overflow: visible;
+}
+
+
+/* ---------------------------------------------------------
+   QUESTION MARK - LEFT SIDE
+--------------------------------------------------------- */
+
+.brand::before {
+
+    content: "?";
+
+    position: absolute;
+
+    left: 18%;
+
+    top: 20px;
+
+    font-family: "Schoolbell", cursive !important;
+
+    font-size: 70px;
+
+    font-weight: bold;
+
+    color: #244f91;
+
+    transform: rotate(-18deg);
+
+    z-index: 5;
+
+}
+
+
+
+
+
+/* =========================================================
+   ARVISHARES - MESSY DOODLES
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   MAIN BRAND AREA
+--------------------------------------------------------- */
+
+.brand {
+
+    position: relative;
+
+    overflow: visible;
+
+    isolation: isolate;
+
+}
+
+
+/* Keep the main logo above the doodles */
+
+.brand h1,
+.brand p {
+
+    position: relative;
+
+    z-index: 5;
+
+}
+
+
+/* ---------------------------------------------------------
+   BASE STYLE FOR ALL DOODLES
+--------------------------------------------------------- */
+
+.logo-doodle {
+
+    position: absolute;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    font-family: "Schoolbell", cursive !important;
+
+    font-weight: bold;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   LEFT SIDE DOODLES
+========================================================= */
+
+
+/* BIG QUESTION MARK */
+
+.d1 {
+
+    left: 13%;
+
+    top: 5px;
+
+    font-size: 70px;
+
+    color: #285a9b;
+
+    transform: rotate(-18deg);
+
+}
+
+
+/* SMALL QUESTION MARK */
+
+.d2 {
+
+    left: 22%;
+
+    top: -20px;
+
+    font-size: 35px;
+
+    color: #111;
+
+    transform: rotate(18deg);
+
+}
+
+
+/* RED EXCLAMATION */
+
+.d3 {
+
+    left: 28%;
+
+    bottom: 5px;
+
+    font-size: 55px;
+
+    color: #c7382f;
+
+    transform: rotate(-15deg);
+
+}
+
+
+/* SMALL EXCLAMATION */
+
+.d4 {
+
+    left: 8%;
+
+    bottom: 20px;
+
+    font-size: 35px;
+
+    color: #d88a1e;
+
+    transform: rotate(20deg);
+
+}
+
+
+/* STAR */
+
+.d7 {
+
+    left: 20%;
+
+    top: -30px;
+
+    font-size: 45px;
+
+    color: #c63d32;
+
+    transform: rotate(-12deg);
+
+}
+
+
+/* ARROW */
+
+.d8 {
+
+    left: 17%;
+
+    bottom: -5px;
+
+    font-size: 55px;
+
+    color: #111;
+
+    transform: rotate(-20deg);
+
+}
+
+
+/* SUMMATION */
+
+.d10 {
+
+    left: 30%;
+
+    top: -35px;
+
+    font-size: 35px;
+
+    color: #a23d7e;
+
+    transform: rotate(-12deg);
+
+}
+
+
+/* =========================================================
+   RIGHT SIDE DOODLES
+========================================================= */
+
+
+/* LIGHT BULB */
+
+.d5 {
+
+    right: 17%;
+
+    top: -25px;
+
+    font-size: 52px;
+
+    transform: rotate(12deg);
+
+}
+
+
+/* SPARKLE */
+
+.d6 {
+
+    right: 26%;
+
+    bottom: 5px;
+
+    font-size: 42px;
+
+    color: #d9a800;
+
+    transform: rotate(20deg);
+
+}
+
+
+/* RIGHT ARROW */
+
+.d9 {
+
+    right: 14%;
+
+    bottom: 0;
+
+    font-size: 50px;
+
+    color: #24599d;
+
+    transform: rotate(15deg);
+
+}
+
+
+/* INFINITY */
+
+.d22 {
+
+    right: 30%;
+
+    top: -30px;
+
+    font-size: 45px;
+
+    color: #b63877;
+
+    transform: rotate(-10deg);
+
+}
+
+
+/* DELTA */
+
+.d18 {
+
+    right: 9%;
+
+    top: 25px;
+
+    font-size: 40px;
+
+    color: #d18b14;
+
+    transform: rotate(10deg);
+
+}
+
+
+/* =========================================================
+   MATHS DOODLES
+========================================================= */
+
+
+/* PI */
+
+.d11 {
+
+    left: 35%;
+
+    top: -30px;
+
+    font-size: 38px;
+
+    color: #225a9c;
+
+    transform: rotate(-10deg);
+
+}
+
+
+/* ROOT X */
+
+.d12 {
+
+    right: 34%;
+
+    bottom: 0;
+
+    font-size: 30px;
+
+    color: #111;
+
+    transform: rotate(8deg);
+
+}
+
+
+/* MATH SYMBOLS */
+
+.d21 {
+
+    right: 22%;
+
+    bottom: -10px;
+
+    font-size: 25px;
+
+    color: #b53572;
+
+    letter-spacing: 5px;
+
+    transform: rotate(-8deg);
+
+}
+
+
+/* =========================================================
+   PHYSICS DOODLES
+========================================================= */
+
+
+/* E = mc² */
+
+.d13 {
+
+    left: 24%;
+
+    top: 45px;
+
+    font-size: 22px;
+
+    color: #b13a2f;
+
+    transform: rotate(-12deg);
+
+}
+
+
+/* F = ma */
+
+.d14 {
+
+    right: 27%;
+
+    top: 45px;
+
+    font-size: 22px;
+
+    color: #245a99;
+
+    transform: rotate(10deg);
+
+}
+
+
+/* ATOM */
+
+.d17 {
+
+    right: 7%;
+
+    bottom: 15px;
+
+    font-size: 42px;
+
+    color: #111;
+
+    transform: rotate(12deg);
+
+}
+
+
+/* =========================================================
+   CHEMISTRY DOODLES
+========================================================= */
+
+
+/* H₂O */
+
+.d15 {
+
+    left: 10%;
+
+    top: 70px;
+
+    font-size: 25px;
+
+    color: #287d78;
+
+    transform: rotate(-10deg);
+
+}
+
+
+/* CO₂ */
+
+.d16 {
+
+    right: 12%;
+
+    top: 70px;
+
+    font-size: 25px;
+
+    color: #a33d73;
+
+    transform: rotate(10deg);
+
+}
+
+
+/* =========================================================
+   MESSY SCRIBBLES
+========================================================= */
+
+
+/* LEFT SCRIBBLE */
+
+.d19 {
+
+    left: 14%;
+
+    bottom: -20px;
+
+    font-size: 50px;
+
+    color: #111;
+
+    letter-spacing: -12px;
+
+    transform: rotate(-12deg);
+
+}
+
+
+/* RIGHT SCRIBBLE */
+
+.d20 {
+
+    right: 15%;
+
+    bottom: -25px;
+
+    font-size: 45px;
+
+    color: #b83c74;
+
+    letter-spacing: -12px;
+
+    transform: rotate(8deg);
+
+}
+
+
+/* =========================================================
+   RANDOM ROTATION FOR NATURAL MESSINESS
+========================================================= */
+
+.d1,
+.d5,
+.d7,
+.d10,
+.d13,
+.d17 {
+
+    filter: contrast(1.1);
+
+}
+
+
+/* =========================================================
+   MOBILE VERSION
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .d10,
+    .d11,
+    .d12,
+    .d13,
+    .d14,
+    .d15,
+    .d16,
+    .d18,
+    .d21,
+    .d22 {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .logo-doodle {
+
+        transform: scale(0.7);
+
+    }
+
+
+    .d1 {
+
+        left: 5%;
+
+    }
+
+
+    .d5 {
+
+        right: 5%;
+
+    }
+
+
+    .d2,
+    .d3,
+    .d4,
+    .d7,
+    .d8,
+    .d9,
+    .d19,
+    .d20 {
+
+        display: none;
+
+    }
+
+}
+
+.brand {
+    width: 100%;
+    height: auto;
+    padding: 0;
+}
+
+.brand-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+}
